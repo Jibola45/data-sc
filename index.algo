@@ -1,0 +1,46 @@
+ALGORITHM problemOneSolution
+VAR
+    setOne, setTwo : ARRAY_OF INTEGER[10];
+    i,counter : INTEGER := 0;
+    htab := HASH_TABLE<INTEGER,INTEGER>;
+    setOfhtabKeys : ARRAY_OF INTEGERS[20];
+    sum : INTEGER := 0;
+BEGIN
+    //Give the value to SetOne and setTwo
+    SetOne := [3,1,7,9];
+    setTwo := [2,4,1,9,3];
+
+    /*in this two for loops we will insert
+    the element of setOne and setTwo into
+    htab the elements of the arrays will be 
+    the key and the value is the number of 
+    repitition in the two arrays.let's
+
+start*/
+       FOR i FROM 0 TO setOne.length-1 STEP 1 DO
+               IF (htab.lookup(setOne[i]) = TRUE)  THEN
+                counter := htab.get(setTwo[i]) ;
+                htab.insert(setTwo[i],counter+1);
+                ELSE                       
+                  htab.insert(setTwo[i],1);                      
+               END_IF
+       END_FOR
+       /*after the insertion of all elements of 
+       the two arrays into our Hash Table (htab)
+       we will insert all his keys in a third array
+       (setOfhtabKeys) */
+
+       setOfhtabKeys := htab.getKeys()=;
+    
+    /*now we will loop through htab and searching 
+    for all keys that a value equal to 1 and add it 
+    to the sum */
+    
+    FOR i FROM 0 TO setOfhtabKeys STEP 1  DO
+        IF (htab.get(setOfhtabKeys[i]= 1
+        )) THEN
+            sum := sum + setOfhtabKeys[i]
+        END_IF
+    END_FOR
+    WRITE(sum);
+END
